@@ -14,6 +14,7 @@
 		7EE36A5C1BED2C4400D00D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE36A5A1BED2C4400D00D7B /* LaunchScreen.storyboard */; };
 		7EE36A671BED2C4400D00D7B /* Counter2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE36A661BED2C4400D00D7B /* Counter2Tests.swift */; };
 		7EE36A721BED2C4400D00D7B /* Counter2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE36A711BED2C4400D00D7B /* Counter2UITests.swift */; };
+		7EE36A801BED4F6C00D00D7B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE36A7F1BED4F6C00D00D7B /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7EE36A6D1BED2C4400D00D7B /* Counter2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Counter2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE36A711BED2C4400D00D7B /* Counter2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter2UITests.swift; sourceTree = "<group>"; };
 		7EE36A731BED2C4400D00D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EE36A7F1BED4F6C00D00D7B /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				7EE36A511BED2C4400D00D7B /* AppDelegate.swift */,
 				7EE36A531BED2C4400D00D7B /* ViewController.swift */,
 				7EE36A551BED2C4400D00D7B /* Main.storyboard */,
+				7EE36A7F1BED4F6C00D00D7B /* ViewController2.swift */,
 				7EE36A581BED2C4400D00D7B /* Assets.xcassets */,
 				7EE36A5A1BED2C4400D00D7B /* LaunchScreen.storyboard */,
 				7EE36A5D1BED2C4400D00D7B /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				7EE36A541BED2C4400D00D7B /* ViewController.swift in Sources */,
 				7EE36A521BED2C4400D00D7B /* AppDelegate.swift in Sources */,
+				7EE36A801BED4F6C00D00D7B /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

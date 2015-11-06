@@ -10,15 +10,70 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
+    
+var elapsedTime = 0.0
+var roundedElapsedTime = 0.0
+    
+    
+    var i = 0.0
 
+    // -- Timer Start ------------------------------//
+    var startTime = NSTimeInterval()
+    var timer = NSTimer()
+ 
+    
+    // -- Timer Stop ------------------------------//
+    
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        // -- Timer Start ------------------------------//
+        startCounter()
+        // -- Timer Stop ------------------------------//
+        
+        
         return true
+        
+
     }
 
+    // -- Timer Start ------------------------------//
+    
+    func startCounter() {
+        
+        let aSelector : Selector = "updateTime"
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate()
+        
+    }
+    
+    func updateTime() {
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let elapsedTime = currentTime - startTime
+        let roundedElapsedTime = (round(elapsedTime*100)/100)
+       
+        //counter_lbl.text = Int(elapsedTime).description
+        //  counter_lbl.text = (round(elapsedTime*100)/100).description
+        //counter_lbl.text = elapsedTime.description
+       
+        print(roundedElapsedTime)
+        
+         i = roundedElapsedTime
+        
+        //roundedElapsedTime
+       // i = i + 1
+        print(i)
+
+        
+    }
+    // -- Timer Stop ------------------------------//
+    
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
