@@ -6,46 +6,88 @@
 //  Copyright © 2015 LostAndFound. All rights reserved.
 //
 
+
+// ---- Erik ----
+// Startar en timer som räknar ned från timeLeft
+// Timern styr blink, vibration och vybyte
+// --------------
+
 import UIKit
+// </ERIK>      ------------------------------//
+import AudioToolbox
+import AVFoundation
+// </ERIK>      ------------------------------//
+
 
 class ViewController2: UIViewController {
 
+// </ERIK>      ------------------------------//
     @IBOutlet var myLable_2: UILabel!
-   
-
-    var countFrom = 9.0
-
+    var countFrom = 10.0
+    var timeLeft = 0.0
+    var localRoundedElapsedTime = 0.0
+    var localStartTime = NSTimeInterval()
+    var localTimer = NSTimer()
+// </ERIK>      ------------------------------//
     
-    var localTtimer = NSTimer()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        localTtimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("localTime"), userInfo: nil, repeats: true)
+// <ERIK>       ------------------------------//
+        startCounter()
+// </ERIK>      ------------------------------//
+        
     }
+    
+// <ERIK>       ------------------------------//
    
-    var starTime = 0.0
+    func startCounter() {
+        let aSelector : Selector = "localTime"
+        localTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        localStartTime = NSDate.timeIntervalSinceReferenceDate()
+    }
     
     func localTime(){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let aVariable = appDelegate.i
+
+        
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let elapsedTime = currentTime - localStartTime
+        localRoundedElapsedTime = (round(elapsedTime*100)/100)
+        timeLeft = countFrom - localRoundedElapsedTime
+        myLable_2.text = round(timeLeft*100/100).description
+        
+        if (timeLeft <= 0.0){
+            localTimer.invalidate()
+            self.performSegueWithIdentifier("returnToStart", sender: self)
+            }
+        else if (timeLeft <= 3.0){
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            AudioServicesPlaySystemSound(SystemSoundID(1000))
+            }
+        else if (timeLeft <= 4.2){
+            self.view.backgroundColor = UIColor.whiteColor()
+            }
+        else if (timeLeft <= 4.8){
+            self.view.backgroundColor = UIColor.redColor()
+            }
+        else if (timeLeft <= 5.2){
+            self.view.backgroundColor = UIColor.whiteColor()
+            }
+        else if (timeLeft <= 5.6){
+            self.view.backgroundColor = UIColor.redColor()
+            }
+        else if (timeLeft <= 6.0){
+            self.view.backgroundColor = UIColor.whiteColor()
+        }
+        else if (timeLeft <= 6.4){
+            self.view.backgroundColor = UIColor.redColor()
+        }
+
+        
+        }
     
-        
-        if (starTime == 0.0){
-        starTime = appDelegate.i
-        }
-        
-        let timeLeft = countFrom - (aVariable-starTime)
-        myLable_2.text = timeLeft.description
-        
-        
-        if (timeLeft <= 7.0){
-        localTtimer.invalidate()
-       
-        self.performSegueWithIdentifier("returnToStart", sender: self)
-        }
-    }
+// </ERIK>      ------------------------------//
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

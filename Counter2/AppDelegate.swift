@@ -6,6 +6,12 @@
 //  Copyright © 2015 LostAndFound. All rights reserved.
 //
 
+// ---- Erik ----
+// Startar en timer som går konstant så
+// att man kan hålla kolla på totaltider
+// --------------
+
+
 import UIKit
 
 @UIApplicationMain
@@ -13,64 +19,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-var elapsedTime = 0.0
-var roundedElapsedTime = 0.0
-    
-    
-    var i = 0.0
-
-    // -- Timer Start ------------------------------//
+// <ERIK>       ------------------------------//
+    var roundedElapsedTime = 0.0
     var startTime = NSTimeInterval()
     var timer = NSTimer()
- 
-    
-    // -- Timer Stop ------------------------------//
-    
-    
+// </ERIK>      ------------------------------//
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        // -- Timer Start ------------------------------//
+// <ERIK>       ------------------------------//
         startCounter()
-        // -- Timer Stop ------------------------------//
-        
+// </ERIK>      ------------------------------//
         
         return true
-        
-
     }
 
-    // -- Timer Start ------------------------------//
+// <ERIK>       ------------------------------//
     
     func startCounter() {
-        
         let aSelector : Selector = "updateTime"
         timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: aSelector, userInfo: nil, repeats: true)
         startTime = NSDate.timeIntervalSinceReferenceDate()
-        
-    }
+        }
     
     func updateTime() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
         let elapsedTime = currentTime - startTime
-        let roundedElapsedTime = (round(elapsedTime*100)/100)
-       
-        //counter_lbl.text = Int(elapsedTime).description
-        //  counter_lbl.text = (round(elapsedTime*100)/100).description
-        //counter_lbl.text = elapsedTime.description
-       
-        print(roundedElapsedTime)
-        
-         i = roundedElapsedTime
-        
-        //roundedElapsedTime
-       // i = i + 1
-        print(i)
-
-        
+        roundedElapsedTime = (round(elapsedTime*100)/100)
     }
-    // -- Timer Stop ------------------------------//
+// </ERIK>      ------------------------------//
     
     
     

@@ -5,10 +5,20 @@
 //  Created by Erik Wästlund on 06/11/15.
 //  Copyright © 2015 LostAndFound. All rights reserved.
 //
-// lite ändring
+
+// ---- Erik ----
+// Startar en timer  som hämtar tiden
+// från AppDelegate. Denna timer måste stägas
+// av manuellt annars snurrar det två timers
+// när mam återvänder till vyn
+// --------------
+
+
 import UIKit
 
 class ViewController: UIViewController {
+
+// <ERIK>       ------------------------------//
 
     @IBOutlet var myLable_1: UILabel!
     
@@ -17,19 +27,32 @@ class ViewController: UIViewController {
     }
     
     var localTtimer = NSTimer()
+// </ERIK>      ------------------------------//
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
-        localTtimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("localTime"), userInfo: nil, repeats: true)
+        
+// <ERIK>       ------------------------------//
+        startCounter()
+// </ERIK>      ------------------------------//
+        
     }
-
+    
+    
+// <ERIK>       ------------------------------//
+    func startCounter() {
+        let aSelector : Selector = "localTime"
+        localTtimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: aSelector, userInfo: nil, repeats: true)
+    }
+    
     func localTime(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let aVariable = appDelegate.i
+        let aVariable = appDelegate.roundedElapsedTime
         myLable_1.text = aVariable.description
      }
+// </ERIK>      ------------------------------//
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
