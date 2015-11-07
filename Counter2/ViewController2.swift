@@ -60,27 +60,59 @@ class ViewController2: UIViewController {
         if (timeLeft <= 0.0){
             localTimer.invalidate()
             self.performSegueWithIdentifier("returnToStart", sender: self)
+   
             }
+    
+        if (timeLeft <= 0.4){
+            AudioServicesPlaySystemSound(SystemSoundID())
+            AudioServicesPlayAlertSound(SystemSoundID())
+            self.view.backgroundColor = UIColor.blackColor()
+        }
+        else if (timeLeft <= 0.5){
+            AudioServicesPlaySystemSound(SystemSoundID(1000))
+        }
+        else if (timeLeft <= 1.0){
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
+        else if (timeLeft <= 1.8){
+            AudioServicesPlayAlertSound(SystemSoundID())
+        }
+        else if (timeLeft <= 2.0){
+             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
+        else if (timeLeft <= 2.8){
+            AudioServicesPlayAlertSound(SystemSoundID())
+        }
         else if (timeLeft <= 3.0){
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            AudioServicesPlaySystemSound(SystemSoundID(1000))
-            }
-        else if (timeLeft <= 4.2){
+        }
+
+        
+            if (timeLeft <= 1.0){
+            self.view.backgroundColor = UIColor.redColor()
+        }
+        else if (timeLeft <= 1.5){
             self.view.backgroundColor = UIColor.whiteColor()
             }
-        else if (timeLeft <= 4.8){
+        else if (timeLeft <= 2.0){
             self.view.backgroundColor = UIColor.redColor()
             }
-        else if (timeLeft <= 5.2){
+        else if (timeLeft <= 3.5){
             self.view.backgroundColor = UIColor.whiteColor()
             }
-        else if (timeLeft <= 5.6){
+        else if (timeLeft <= 3.0){
             self.view.backgroundColor = UIColor.redColor()
             }
-        else if (timeLeft <= 6.0){
+        else if (timeLeft <= 3.5){
             self.view.backgroundColor = UIColor.whiteColor()
         }
-        else if (timeLeft <= 6.4){
+        else if (timeLeft <= 4.0){
+            self.view.backgroundColor = UIColor.redColor()
+        }
+        else if (timeLeft <= 4.5){
+            self.view.backgroundColor = UIColor.whiteColor()
+        }
+        else if (timeLeft <= 5.0){
             self.view.backgroundColor = UIColor.redColor()
         }
 

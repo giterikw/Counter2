@@ -7,9 +7,9 @@
 //
 
 // ---- Erik ----
-// Startar en timer  som hämtar tiden
-// från AppDelegate. Denna timer måste stägas
-// av manuellt annars snurrar det två timers
+// Startar en timer (ticker) som hämtar tiden
+// från AppDelegate varje tick. Denna timer måste stägas
+// av annars snurrar det två timers
 // när mam återvänder till vyn
 // --------------
 
